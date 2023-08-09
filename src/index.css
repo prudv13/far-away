@@ -100,9 +100,8 @@ input {
 
 .list ul {
   list-style: none;
-  width: 80%;
+  width: 90%;
   overflow: hidden;
-
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.2rem;
@@ -136,4 +135,12 @@ input[type="checkbox"] {
   text-align: center;
   font-weight: 700;
   padding: 3.2rem 0;
+}
+.delete-container{
+  margin: 10px;
+}
+
+.delete-icon{
+  color: #fa5252;
+  cursor: pointer;
 }
