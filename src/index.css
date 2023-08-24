@@ -34,23 +34,40 @@ body {
 
 h1 {
   text-align: center;
-  background-color: #f4a226;
+  background-color: #91C8E4;
   font-family: "Monoton";
-  font-size: 8rem;
+  font-size: 6rem;
   text-transform: uppercase;
   font-weight: 400;
   word-spacing: 30px;
   letter-spacing: -5px;
   padding: 2.4rem 0;
-}
-
-.add-form {
-  background-color: #e5771f;
-  padding: 2.8rem 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100px;
+  gap: 30px;
+}
+
+.logo {
+  height: 60px;
+}
+
+.add-form {
+  background-color: #749BC2;
+  padding: 2.8rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
   gap: 0.8rem;
+  color: #fff;
+  min-height: 200px;
+  overflow: hidden;
+}
+
+.add-form div {
+  display: flex;
+  gap: 20px;
 }
 
 h3 {
@@ -61,10 +78,11 @@ h3 {
 button,
 select,
 input {
-  background-color: #ffebb3;
-  color: #5a3e2b;
+  background-color: #fff;
+  color: #040D12;
   font-family: inherit;
   border: none;
+  outline: none;
   border-radius: 10rem;
   padding: 1.2rem 3.2rem;
   font-weight: 700;
@@ -74,24 +92,28 @@ input {
 
 .add-form button {
   text-transform: uppercase;
-  background-color: #76c7ad;
+  background-color: #4682A9;
+  color: #fff;
 }
 
 .list {
-  background-color: #5a3e2b;
-  color: #ffebb3;
+  background-color: #f2f8fd;
+  color: #222b1a;
   padding: 4rem 0;
+  width: 100%;
 
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  gap: 3.2rem;
+  gap: 2rem;
   align-items: center;
 }
 
 .actions button,
 .list select {
   text-transform: uppercase;
+  background-color: #4682A9;
+  color: #fff;
   padding: 0.8rem 2.4rem;
   font-size: 1.4rem;
   font-weight: 700;
@@ -118,7 +140,7 @@ input {
 input[type="checkbox"] {
   height: 2rem;
   width: 2rem;
-  accent-color: #e5771f;
+  accent-color: #91C8E4;
 }
 
 .list li button {
@@ -131,7 +153,8 @@ input[type="checkbox"] {
 }
 
 .stats {
-  background-color: #76c7ad;
+  background-color: #91C8E4;
+  color: #fff;
   text-align: center;
   font-weight: 700;
   padding: 3.2rem 0;
@@ -141,6 +164,148 @@ input[type="checkbox"] {
 }
 
 .delete-icon{
-  color: #fa5252;
+  color: #d37777;
   cursor: pointer;
+}
+
+@media screen and (max-width: 986px) {
+  h1 {
+    max-height: 160px;
+  }
+  .add-form h3{
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 986px) {
+  h1 {
+    max-height: 160px;
+    font-size: 5rem;
+  }
+
+  .logo {
+    height: 65px;
+  }
+
+  .add-form {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 586px) {
+  h1 {
+    font-size: 4rem;
+  }
+
+  .logo {
+    height: 50px;
+  }
+
+  .add-form {
+    height: 4rem;
+  }
+  .add-form div{
+    flex-direction: column;
+    gap: 20px;
+  }
+  .input-div {
+    flex-direction: row !important;
+  }
+  .add-form section{
+    align-self: flex-end;
+    margin-right: 20px;
+  }
+
+  .stats{
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 441px) {
+  h1 {
+    word-spacing: 10px;
+    gap: 5px;
+    font-size: 3rem;
+  }
+
+  .logo {
+    height: 40px;
+  }
+
+  .add-form {
+    height: 3rem;
+  }
+  .input-div {
+    flex-direction: row;
+  }
+  .input-div input{
+    font-size: 14px;
+    padding: 10px 15px;
+    max-width: 35%;
+  }
+  .input-div input:last-child{
+    font-size: 14px;
+    padding: 10px 15px;
+    max-width: 55%;
+  }
+  .add-form section{
+    align-self: flex-end;
+    margin-right: 20px;
+  }
+  .add-form section button{
+    font-size: 14px;
+    padding: 7px 15px;
+  }
+
+  .list {
+    font-size: 16px;
+
+  }
+
+  input[type="checkbox"] {
+    height: 1rem;
+    width: 1rem;
+  }
+
+  .actions button,
+  .list select {
+    padding: 0.8rem 2rem;
+    font-size: 0.8rem;
+    margin: 0 0.5rem;
+  }
+
+  .stats{
+    font-size: 12px;
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 365px) {
+  h1 {
+    font-size: 2.7rem;
+  }
+
+  .logo {
+    height: 35px;
+  }
+
+  .add-form {
+    height: 3rem;
+    align-items: flex-start;
+    padding: 10px;
+  }
+  .input-div {
+    flex-direction: row;
+  }
+  .input-div input{
+    font-size: 13px;
+    padding: 10px 15px;
+    max-width: 30%;
+  }
+  .input-div input:last-child{
+    font-size: 14px;
+    padding: 10px 15px;
+    max-width: 55%;
+  }
 }

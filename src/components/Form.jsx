@@ -29,21 +29,25 @@ export default function Form({onAddItems}){
   
     return (
       <form className='add-form' onSubmit={handleSubmit}>
-        <h3>What do you need for your 😍 trip ?</h3>
-        <input 
-          type='text' 
-          placeholder='Quantity' 
-          value={quantity}
-          onChange={(e) => setQuantity(e.target.value)}
-          style={{width: "150px"}}
-        />
-        <input 
-          type='text' 
-          placeholder='Item...' 
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-        <button>ADD</button>
+        <h3>What do you need for your trip ?</h3>
+        <div className="input-div">
+          <input 
+            type='text' 
+            placeholder='Quantity' 
+            value={quantity}
+            onChange={(e) => setQuantity(e.target.value)}
+            style={{width: "150px"}}
+          />
+          <input 
+            type='text' 
+            placeholder='Item...' 
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </div>
+        <section>
+          <button>ADD</button>
+        </section>
       </form>
     );
 }
