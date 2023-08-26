@@ -1,0 +1,18 @@
+version: "3.0"
+services:
+  faraway-app:
+    stdin_open: true
+    tty: true
+    # same as -it passed in docker run cmd
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src:/app/src
+    environment:
+      - REACT_APP_NAME = faraway
+      - CHOKIDAR_USEPOLLING = true
+    # env_file:
+    #   - ./.env

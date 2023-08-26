@@ -45,7 +45,8 @@ To deploy the application made with react in a Docker container -
 
 build docker image
 ```bash
-  docker build -t faraway-image .
+  docker build -f Dockerfile.dev -t faraway-image-dev .
+  docker build -f Dockerfile.prod -t faraway-image-prod .
 ```
 
 view docker images list
@@ -60,8 +61,13 @@ delete docker image
 
 run docker container
 ```bash
-  docker run -d -p 3000:3000 --name faraway-app faraway-image
+  docker run -it -v <dirlocaldirectory>:<containerdirectory> -d -p 3000:3000 --name faraway-app faraway-image
 ```
+run docker container with read only bind mounts, environment variable
+```bash
+docker run -it -e CHOKIDAR_USEPOLLING=true -v ${pwd}\src:/app/src:ro -d -p 3000:3000 --name faraway-app faraway-image
+```
+
 
 show running docker container
 ```bash
@@ -75,6 +81,39 @@ kill the running docker container
 access the bash terminal of the docker container
 ```bash
   docker exec -it faraway-app bash
+```
+
+pass env variables via file
+```bash
+docker run -it --env-file ./.env -v ${pwd}\src:/app/src:ro -d -p 3000:3000 --name faraway-app faraway-image
+docker run --env-file ./.env -d -p 8080:80 --name faraway-app-prod faraway-image-prod
+```
+
+runs the docker compose code to start the container
+```bash
+docker-compose up -d
+```
+
+shut the docker container, removes the network created
+```bash
+docker-compose down
+```
+
+build docker image with docker compose
+```bash
+  docker-compose up -d --build
+```
+
+build docker image in dev, prod with docker compose
+```bash
+  docker-compose -f docker-compose.yml -f docker-compose-dev.yml up -d --build
+  docker-compose -f docker-compose.yml -f docker-compose-prod.yml up -d --build
+```
+
+shut the docker container of dev, prod, removes the networks created
+```bash
+docker-compose -f docker-compose.yml -f docker-compose-dev.yml down
+docker-compose -f docker-compose.yml -f docker-compose-prod.yml down
 ```
 
 [![N|dockerhub](https://res.cloudinary.com/dqab7rimk/image/upload/v1692947494/codepen/faraway-dockerhub_zh2mrs.png)](https://hub.docker.com/r/prudv13/faraway-app/tags)
